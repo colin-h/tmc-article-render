@@ -25,7 +25,9 @@
 var express = require('express')
 var http = require('http')
 var bodyParser = require('body-parser')
-var request = require('request');
+var request = require('request')
+var jade = require('jade')
+var fs = require('fs');
 
 var app = express()
 
@@ -35,23 +37,30 @@ var jsonParser = bodyParser.json()
 // create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
-app.use(express.static('client'));
+// app.use(express.static('client'));
+app.set('views', __dirname + '/views')
+app.set('view engine', 'jade');
 
+app.get('/', function(req, res) {
+  res.render('index');
+});
 
 // POST /fetchId gets urlencoded bodies
 app.post('/:fetchId', urlencodedParser, function (req, res) {
   if (!req.body) return res.sendStatus(400)
-
-  function render(article) {
-    res.send(article);
-  }
-
   console.log(req.body);
-  var article = request('https://tmc-api-v4.herokuapp.com/v4/article/' + req.body.id, function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-      console.log(body) // Print the google web page.
-      render(body);
+
+
+  request('https://tmc-api-v4.herokuapp.com/v4/article/' + req.body.id, function (error, response, body) {
+    if (!error) {
+      var data = JSON.parse(body);
+      console.log(data);
+      res.render('show', data.article);
+
+    } else {
+      return console.log(error);
     }
+
   })
 
   // res.send(article);
