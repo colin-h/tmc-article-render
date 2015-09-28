@@ -37,7 +37,8 @@ var jsonParser = bodyParser.json()
 // create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
-// app.use(express.static('client'));
+app.use(express.static('public'));
+app.set('stylesheets', __dirname + '/vendor/foundation/css')
 app.set('views', __dirname + '/views')
 app.set('view engine', 'jade');
 
