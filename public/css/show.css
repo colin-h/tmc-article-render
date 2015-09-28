@@ -1,0 +1,14 @@
+body {
+  font-family: "Open Sans";
+  background-color: #eee;
+}
+
+h1, h2 {
+  font-family: "Lora";
+}
+
+#nav {
+  height: 55px;
+  padding-left: 20px;
+  padding-right: 20px;
+}

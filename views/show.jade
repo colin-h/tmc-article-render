@@ -2,14 +2,42 @@ doctype
 html
   head
     title #{title} - Inkworthy
-    //- link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Lora|Roboto|Open+Sans', type='text/css')
+    link(rel='stylesheet', href='/css/foundation.min.css' type='text/css')
+    link(rel='stylesheet', href='/css/show.css' type='text/css')
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js")
+
   body
-    header
-      h1= title
-    .container
-      .main-content
-        block content
-      .sidebar
-        block sidebar
-    footer
-      p Running on node with Express, Jade and Stylus
+    div#nav.fullWidth
+      h3 Inkworthy
+
+    div.row
+      div.small-10.columns
+        h1= title
+        if authors
+          strong= authors
+        else
+          strong= publication.name
+          em &nbsp; &nbsp; Vol. #{volume} Ed. #{number}
+
+      div.small-2.columns
+        span.label Words: #{analytics.word_count}
+        span.label Pages: #{analytics.page_range}
+
+    div.row
+      div.small-12.columns
+        //- - var data = !{body_html.split("\n")}
+
+        | !{body_html}
+
+
+
+
+
+      //- .container
+      //-   .main-content
+      //-     block content
+      //-   .sidebar
+      //-     block sidebar
+      //- footer
+      //-   p Running on node with Express, Jade and Stylus
