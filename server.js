@@ -25,13 +25,16 @@ app.get('/', function(req, res) {
 // POST /fetchId gets urlencoded bodies
 app.post('/:fetchId', urlencodedParser, function (req, res) {
   if (!req.body) return res.sendStatus(400);
-  console.log(req.body);
 
   //send request to tmc-api
   request('https://tmc-api-v4.herokuapp.com/v4/article/' + req.body.id, function (error, response, body) {
-    if (!error) {
+    if (response.headers.status === '404 Not Found') {
+      console.log("not a valid Id");
+      res.render('index')
+      // res.send(404);
+    }
+    else if (!error) {
       var data = JSON.parse(body);
-      console.log(data);
       res.render('show', data.article);
 
     } else {
