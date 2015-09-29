@@ -6,6 +6,8 @@ html
     link(rel='stylesheet', href='/css/foundation.min.css' type='text/css')
     link(rel='stylesheet', href='/css/show.css' type='text/css')
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js")
+    script(src="/javascripts/image_render.js")
 
   body
     div#nav.fullWidth
@@ -26,18 +28,13 @@ html
 
     div.row
       div.small-12.columns
-        //- - var data = !{body_html.split("\n")}
+        .mainText
+          | !{body_html}
 
-        | !{body_html}
-
-
-
-
-
-      //- .container
-      //-   .main-content
-      //-     block content
-      //-   .sidebar
-      //-     block sidebar
-      //- footer
-      //-   p Running on node with Express, Jade and Stylus
+          //- each image in images
+          //-   img(src="#{image.url}")
+    .row
+      .small-12.columns
+        div#images
+          each image in images
+            img.articleImage(src="#{image.url}")
