@@ -7,34 +7,49 @@ html
     link(rel='stylesheet', href='/css/show.css' type='text/css')
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js")
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js")
+    script(src="/javascripts/imgix.js")
     script(src="/javascripts/image_render.js")
 
   body
     div#nav.fullWidth
-      h3 Inkworthy
+      a(href="/")
+        h3 Inkworthy
 
-    div.row
-      div.small-10.columns
-        h1= title
+
+    div#authorRow.row
+      div.small-12.columns
         if authors
           strong= authors
         else
           strong= publication.name
           em &nbsp; &nbsp; Vol. #{volume} Ed. #{number}
+          p.right= display_date
 
-      div.small-2.columns
-        span.label Words: #{analytics.word_count}
-        span.label Pages: #{analytics.page_range}
-
+    div#titleRow.row
+      div.small-12.columns
+        h1= title
     div.row
       div.small-12.columns
+        each tag in tags
+          span.label #{tag.name}
+        span.label.secondary.right Words: #{analytics.word_count}
+      //- div.small-2.columns
+      //-   span.label Words: #{analytics.word_count}
+      //-   span.label Pages: #{analytics.page_range}
+
+    div.row
+      div.small-10.medium-9.medium-centered.columns
         .mainText
           | !{body_html}
 
           //- each image in images
           //-   img(src="#{image.url}")
     .row
-      .small-12.columns
+      .small-10.columns
         div#images
           each image in images
             img.articleImage(src="#{image.url}")
+            div.image-container
+
+    #footer.fullWidth
+      h3 Inkworthy
