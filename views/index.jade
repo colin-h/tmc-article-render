@@ -10,15 +10,10 @@ html
       h3 Inkworthy
 
     div#main.row
-      div.small-10.small-centered.medium-7.medium-centered.large-5.large-centered.columns
-        div.circlebg
-          form(method="post", action="/fetchId")
-            div.row
-              div.large-12.columns
-                div.row.collapse
-                  div.small-12.columns
-                    input(type="text", name="id", placeholder="Enter Article Id")
-                  div.small-2.small-centered.columns
-                    input(type="submit" value="Submit")
-            //- input(type="text", name="id")
-            //- input(type="submit", value="Submit")
+      div.small-12.small-centered.medium-7.medium-centered.large-5.large-centered.columns
+        form(method="post", action="/fetchId")
+            div.row.collapse
+              div.small-9.columns
+                input(type="text", name="id", placeholder="Enter Article Id")
+              div.small-3.columns
+                input.postfix.button(type="submit" value="Go")

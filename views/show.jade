@@ -31,19 +31,14 @@ html
     div.row
       div.small-12.columns
         each tag in tags
-          span.label #{tag.name}
+          span.label.left #{tag.name}
         span.label.secondary.right Words: #{analytics.word_count}
-      //- div.small-2.columns
-      //-   span.label Words: #{analytics.word_count}
-      //-   span.label Pages: #{analytics.page_range}
 
-    div.row
-      div.small-10.medium-9.medium-centered.columns
+    div.row.mainBg
+      div.small-12.medium-9.medium-centered.columns
         .mainText
           | !{body_html}
 
-          //- each image in images
-          //-   img(src="#{image.url}")
     .row
       .small-10.columns
         div#images

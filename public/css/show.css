@@ -33,8 +33,7 @@ strong {
 }
 
 #titleRow {
-  padding-top: 2%;
-  /*padding-bottom: 2%;*/
+  padding-top: 1%;
 }
 
 #titleRow h1 {
@@ -43,15 +42,23 @@ strong {
 
 #authorRow {
   padding: 10px;
-  /*border-bottom: solid 3px #cccccc;*/
 }
 
 #authorRow p {
   margin-bottom: 0;
 }
 
+.mainBg {
+  background-color: #fff;
+  border-top: solid 3px #008CBA;
+}
 .mainText {
   padding-top: 2%;
+}
+
+
+.mainText p:first-child {
+  font-weight: 900;
 }
 
 .image-container {
@@ -60,8 +67,10 @@ strong {
   background-repeat: no-repeat;
   background-position: center;
 }
-/*.mainText img {
-  padding-bottom: 20px;
-  width: 100%;
-  height: auto;
-}*/
+
+@media only screen and (max-width: 40em) {
+  .mainText p {
+    border-bottom: solid 3px #ccc;
+    padding-bottom: 20px;
+  }
+}
