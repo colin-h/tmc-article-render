@@ -1,0 +1,50 @@
+doctype
+html
+  head
+    title #{title} - Inkworthy
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Lora|Roboto|Open+Sans', type='text/css')
+    link(rel='stylesheet', href='/css/foundation.min.css' type='text/css')
+    link(rel='stylesheet', href='/css/show.css' type='text/css')
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js")
+    script(src="/javascripts/imgix.js")
+    script(src="/javascripts/image_render.js")
+
+  body
+    div#nav.fullWidth
+      a(href="/")
+        h3 Inkworthy
+
+
+    div#authorRow.row
+      div.small-12.columns
+        if authors
+          strong= authors
+        else
+          strong= publication.name
+          em &nbsp; &nbsp; Vol. #{volume} Ed. #{number}
+          p.right= display_date
+
+    div#titleRow.row
+      div.small-12.columns
+        h1= title
+    div.row
+      div.small-12.columns
+        each tag in tags
+          span.label.left #{tag.name}
+        span.label.secondary.right Words: #{analytics.word_count}
+
+    div.row.mainBg
+      div.small-12.medium-9.medium-centered.columns
+        .mainText
+          | !{body_html}
+
+    .row
+      .small-10.columns
+        div#images
+          each image in images
+            img.articleImage(src="#{image.url}")
+            div.image-container
+
+    #footer.fullWidth
+      h3 Inkworthy

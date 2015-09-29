@@ -1,0 +1,19 @@
+doctype
+html
+  head
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Lora|Roboto|Open+Sans', type='text/css')
+    link(rel='stylesheet', href='/css/foundation.min.css' type='text/css')
+    link(rel='stylesheet', href='/css/landing.css' type='text/css')
+
+  body
+    div#nav.fullWidth
+      h3 Inkworthy
+
+    div#main.row
+      div.small-12.small-centered.medium-7.medium-centered.large-5.large-centered.columns
+        form(method="post", action="/fetchId")
+            div.row.collapse
+              div.small-9.columns
+                input(type="text", name="id", placeholder="Enter Article Id")
+              div.small-3.columns
+                input.postfix.button(type="submit" value="Go")

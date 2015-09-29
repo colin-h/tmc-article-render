@@ -1,0 +1,76 @@
+body {
+  font-family: "Open Sans";
+  background-color: #eee;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3 {
+  font-family: "Lora";
+}
+
+strong {
+  font-style: bold;
+}
+
+#nav {
+  height: 55px;
+  padding: 7px 10px 20px 20px;
+  background-color: #fff;
+  border-bottom: solid 3px #cccccc;
+}
+
+#footer {
+  height: 55px;
+  padding: 7px 0 20px 20px;
+  background-color: #333;
+  border-top: solid 3px #fff;
+}
+
+#footer h3 {
+  color: #fff;
+  margin-bottom: 0;
+}
+
+#titleRow {
+  padding-top: 1%;
+}
+
+#titleRow h1 {
+  margin-bottom: 0;
+}
+
+#authorRow {
+  padding: 10px;
+}
+
+#authorRow p {
+  margin-bottom: 0;
+}
+
+.mainBg {
+  background-color: #fff;
+  border-top: solid 3px #008CBA;
+}
+.mainText {
+  padding-top: 2%;
+}
+
+
+.mainText p:first-child {
+  font-weight: 900;
+}
+
+.image-container {
+  min-height: 500px;
+  margin-bottom: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@media only screen and (max-width: 40em) {
+  .mainText p {
+    border-bottom: solid 3px #ccc;
+    padding-bottom: 20px;
+  }
+}
